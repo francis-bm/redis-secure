@@ -14,7 +14,6 @@ services:
     platform: linux/amd64
     environment:
       - REDIS_HOSTS=local:redis:6379:ChilliSauce123@
-      - REDIS_PASSWORD=ChilliSauce123@
       - HTTP_USER=ReEf
       - HTTP_PASSWORD=qwerty123aA@
     ports:
