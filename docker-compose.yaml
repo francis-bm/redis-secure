@@ -10,8 +10,7 @@ services:
 
 
   redis-commander:
-    image: rediscommander/redis-commander:latest
-    platform: linux/amd64
+    image: tlaverdure/redis-commander-arm:latest
     environment:
       - REDIS_HOSTS=local:redis:6379:ChilliSauce123@
       - HTTP_USER=ReEf
