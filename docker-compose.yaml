@@ -10,7 +10,7 @@ services:
       - redis-data:/data
 
   redisinsight:
-    image: redis/redisinsight:2.62.0-arm64
+    image: redis/redisinsight:latest
     container_name: redisinsight
     environment:
       RI_APP_PORT: 5540
