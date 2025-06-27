@@ -25,7 +25,7 @@ services:
       - ./nginx/cert.pem:/etc/nginx/certs/cert.pem
       - ./nginx/key.pem:/etc/nginx/certs/key.pem
     depends_on:
-      - redis-commander
+      - redisinsight
     restart: always
 
 volumes:
