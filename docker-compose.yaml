@@ -6,7 +6,7 @@ services:
     restart: unless-stopped
     ports:
       - "6379:6379"
-    command: ["redis-server", "--requirepass", "ChilliSauce123@"]
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
 
   redis-commander:
     image: rediscommander/redis-commander:latest
