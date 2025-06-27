@@ -10,7 +10,7 @@ services:
 
 
   redis-commander:
-    image: tlaverdure/redis-commander-arm:latest
+    image: ghcr.io/joeferner/redis-commander:latest
     environment:
       - REDIS_HOSTS=local:redis:6379:ChilliSauce123@
       - HTTP_USER=ReEf
