@@ -1,3 +1,48 @@
+# services:
+#   redis:
+#     image: redis/redis-stack:latest
+#     container_name: redis
+#     restart: unless-stopped
+#     ports:
+#       - "6379:6379"
+#     command: ["redis-server", "--requirepass", "ChilliSauce123@", "--bind", "0.0.0.0", "--protected-mode", "no"]
+#     volumes:
+#       - redis-data:/data
+
+#   redisinsight:
+#     image: redis/redisinsight:2.42.0
+#     container_name: redisinsight
+#     environment:
+#       RI_HOST: 0.0.0.0
+#     ports:
+#       - "5540:5540"
+#     volumes:
+#       - redisinsight-data:/data
+#     restart: always
+#     depends_on:
+#       - redis
+
+#   nginx:
+#     image: nginx:latest
+#     container_name: nginx
+#     ports:
+#       - "443:443"
+#       - "80:80"
+#     volumes:
+#       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+#       - ./nginx/cert.pem:/etc/nginx/certs/cert.pem
+#       - ./nginx/key.pem:/etc/nginx/certs/key.pem
+#     depends_on:
+#       - redisinsight
+#     restart: always
+
+# volumes:
+#   redis-data:
+#   redisinsight-data:
+
+
+version: '3.8'
+
 services:
   redis:
     image: redis/redis-stack:latest
@@ -5,7 +50,8 @@ services:
     restart: unless-stopped
     ports:
       - "6379:6379"
-    command: ["redis-server", "--requirepass", "ChilliSauce123@", "--bind", "0.0.0.0", "--protected-mode", "no"]
+    environment:
+      REDIS_PASSWORD: ChilliSauce123@
     volumes:
       - redis-data:/data
 
@@ -39,3 +85,4 @@ services:
 volumes:
   redis-data:
   redisinsight-data:
+
