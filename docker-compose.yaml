@@ -1,6 +1,8 @@
+version: '3.8'
+
 services:
   redis:
-    image: redis:7.2-alpine
+    image: redis/redis-stack-server:latest
     container_name: redis
     restart: unless-stopped
     ports:
@@ -13,12 +15,7 @@ services:
     image: redis/redisinsight:latest
     container_name: redisinsight
     environment:
-      RI_APP_PORT: 5540
-      RI_APP_HOST: 0.0.0.0
-      RI_REDIS_HOST: redis
-      RI_REDIS_PORT: 6379
-      RI_REDIS_PASSWORD: ChilliSauce123@
-      RI_REDIS_ALIAS: "Reef Redis Server"
+      RI_HOST: 0.0.0.0
     ports:
       - "5540:5540"
     volumes:
