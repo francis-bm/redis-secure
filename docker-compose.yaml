@@ -1,6 +1,6 @@
 services:
   redis:
-    image: redis/redis-stack-server:7.2.0-v9
+    image: redis/redis-stack:latest
     container_name: redis
     restart: unless-stopped
     ports:
