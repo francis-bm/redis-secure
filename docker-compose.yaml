@@ -2,18 +2,18 @@ version: '3.8'
 
 services:
   redis:
-  image: redis/redis-stack:latest
-  container_name: redis
-  restart: unless-stopped
-  ports:
-    - "6379:6379"
-  volumes:
-    - redis-data:/data
-    - ./redis.conf:/redis-stack.conf
-  command: ["redis-server", "/redis-stack.conf"]
+    image: redis/redis-stack:latest
+    container_name: redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+      - ./redis.conf:/redis-stack.conf
+    command: ["redis-server", "/redis-stack.conf"]
 
   redisinsight:
-    image: redis/redisinsight:2.42.0
+    image: redis/redisinsight:latest
     container_name: redisinsight
     environment:
       RI_HOST: 0.0.0.0
@@ -42,4 +42,3 @@ services:
 volumes:
   redis-data:
   redisinsight-data:
-
